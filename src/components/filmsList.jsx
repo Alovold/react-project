@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export function FilmsList() {
+export function FilmsList(props) {
         const [list, setList] = useState([]);
 
     function getFilms() {

@@ -3,7 +3,7 @@ import { useState } from 'react';
 import './App.css';
 import { FilmsList } from "./components/filmsList"
 
-function App() {
+function App(props) {
   const [list, setList] = useState(["ready", "set", "GO"])
   const [text, setText] = useState("");
 
