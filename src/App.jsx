@@ -1,36 +1,30 @@
-import { Component } from "react";
+import { useState } from 'react';
 //import logo from './logo.svg';
 import './App.css';
 import { FilmsList } from "./components/filmsList"
 
-class App extends Component {
-  constructor(props) {
-    super(props);
+function App() {
+  const [list, setList] = useState(["ready", "set", "GO"])
+  const [text, setText] = useState("");
 
-    this.state = {
-      list: ["ready", "set", "GO"],
-      text: ""
-    }
-    this.onSubmit = this.onSubmit.bind(this);
-  }
+function handleSubmit(event) {
+  event.preventDefault();
 
-  onSubmit(e) {
-    e.preventDefault();
-    let newArr = [...this.state.list, this.state.text];
-    this.setState({ list: newArr, text: "" });
-  }
+  setList([...list, text])
+}
 
 
-  render() {
+
+
     return (
       <div>
         <h1>Hello World</h1>
-        <form onSubmit={this.onSubmit}>
-        <input type ="text" value={this.state.text} onChange={(e) => {return this.setState({ text: e.target.value })}}></input>
+        <form onSubmit={handleSubmit}>
+        <input type ="text" value={text} onChange={(e) => setText( e.target.value )}></input>
         <button type = "submit">Add</button>
         </form>
         <ul>
-          {this.state.list.map((item, id) => {
+          {list.map((item, id) => {
             return <li key={id + item}>{item}</li>;
           })}
         </ul>
@@ -38,7 +32,7 @@ class App extends Component {
       </div>
     );
   }
-}
+
 
 
 // function App() {
