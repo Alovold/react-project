@@ -1,29 +1,34 @@
-import { BrowserRouter, Routes, Route, NavLink, Link } from 'react-router-dom';
 import { useState } from 'react';
-import './App.css';
-import { HomePage, FilmsPage } from './pages/index';
+//import './App.css';
+//import { FilmsList } from "./components/filmsList"
 
-function App(props) {
+export function HomePage(props) {
+  const [list, setList] = useState(["ready", "set", "GO"])
+  const [text, setText] = useState("");
+
+function handleSubmit(event) {
+  event.preventDefault();
+
+  setList([...list, text])
+}
+
+
+
 
     return (
-      <BrowserRouter>
-      <nav>
+      <div>
+        <h1>Hello World</h1>
+        <form onSubmit={handleSubmit}>
+        <input type ="text" value={text} onChange={(e) => setText( e.target.value )}></input>
+        <button type = "submit">Add</button>
+        </form>
         <ul>
-          <li>
-            <NavLink to="/">Home</ NavLink>
-          </li>
-          <li>
-            <NavLink to="films">Films</NavLink>
-          </li>
+          {list.map((item, id) => {
+            return <li key={id + item}>{item}</li>;
+          })}
         </ul>
-      </nav>
 
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="films" element={<FilmsPage />} />
-      </Routes>
-
-      </BrowserRouter>
+      </div>
     );
   }
 
@@ -57,4 +62,4 @@ function App(props) {
 //   );
 // }
 
-export default App;
+//export default HomePage;
