@@ -11,16 +11,16 @@ export function FilmsPage(props) {
             return response.json()
         })
         .then((data)=>{
-            //console.log(data[0]);
+            return setList(data);
+            // console.log(data[0]);
             // let filmArr = [];
             // for (let i = 0; i < data.length; i++) {
             //     filmArr.push(data[i].title);
             // }
             // setList( filmArr );
-            setList(data);
         })
         .catch((err)=>{
-            console.log(err.message);
+            return console.error(err);
         })
     }
 
@@ -36,19 +36,24 @@ export function FilmsPage(props) {
         <div>
             <h1>Studio Ghibli Films</h1>
             <form>
-                <div className="form-group">
-                    <label></label>
-                    <select value={searchDirector} onChange={(option)=> setSearchDirector(option)}>
+                
+                <label htmlFor="searchDirector">Filter By Director</label>
+                <select
+                name="searchDirector"
+                id="searchDirector"
+                value={searchDirector}
+                onChange={(e) => setSearchDirector(e.target.value)}
+                >
                         <option value="">All</option>
                         {directors.map((data, id)=> {
-                            return <option key={id + data} value={data}>{data}</option>
+                            return (<option key={id + data} value={data}>{data}</option>);
                         })}
                     </select>
-                </div>
+                
             </form>
             <ul>
                 {filmsByDirector.map((film, index)=>{
-                return <li key={index + film}>{film}</li>
+                return <li key={index + film}>{film.title}</li>
                 })}
             </ul>
       </div>

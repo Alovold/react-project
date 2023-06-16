@@ -1,5 +1,5 @@
-import { BrowserRouter, Routes, Route, NavLink, Link } from 'react-router-dom';
-import { useState } from 'react';
+import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom';
+
 import './App.css';
 import { HomePage, FilmsPage } from './pages/index';
 

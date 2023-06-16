@@ -29,13 +29,11 @@ export function FilmsList(props) {
 
 
       return (
-        <div>
-      <ul>
-        {list.map((film, index)=>{
-        return <li key={index + film}>{film}</li>
-      })}
+        <ul>
+        {list.map((film) => {
+          return <li key={film.id}>{film.title}</li>;
+        })}
       </ul>
-      </div>
       )
     }
 
