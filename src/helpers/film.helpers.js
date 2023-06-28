@@ -22,3 +22,7 @@ export function getListOf(list, prop){
     //     return uniqueValue;
     // }, [])
 }
+
+export function getFilmStats(){
+    
+}

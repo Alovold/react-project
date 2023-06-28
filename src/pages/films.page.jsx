@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { filterFilmsByDirector, getListOf } from "../helpers/film.helpers";
+import { Link } from "react-router-dom";
 
 export function FilmsPage(props) {
         const [list, setList] = useState([]);
@@ -53,7 +54,7 @@ export function FilmsPage(props) {
             </form>
             <ul>
                 {filmsByDirector.map((film, index)=>{
-                return <li key={index + film}>{film.title}</li>
+                return <li key={index + film}><Link to={`film/${film.id}`}>{film.title}</Link></li>
                 })}
             </ul>
       </div>
