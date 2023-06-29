@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
+
 export default function SingleFilmPage() {
   const [item, setItem] = useState({});
   let { id } = useParams();
@@ -22,6 +23,8 @@ export default function SingleFilmPage() {
   useEffect(()=>{
     getFilm();
   },[])
+
+  
 
 
   return (

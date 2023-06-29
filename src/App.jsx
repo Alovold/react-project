@@ -21,7 +21,7 @@ function App(props) {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="films" element={<FilmsPage />} />
-        <Route path="film/:id" element={<SingleFilmPage />} />
+        <Route path="films/film/:id" element={<SingleFilmPage />} />
       </Routes>
 
       </BrowserRouter>

@@ -23,6 +23,24 @@ export function getListOf(list, prop){
     // }, [])
 }
 
-export function getFilmStats(){
-    
+export function getFilmStats(list){
+    let accScore = 0;
+    let total = 0;
+    let latest = 0;
+
+    list.map((item)=>{
+        total++;
+        accScore += parseInt(item.rt_score);
+        if (item.release_date > latest){
+            latest = item.release_date;
+        }
+    })
+
+    let output = {
+        acc_score: accScore,
+        avg_score: (accScore/total),
+        total: total,
+        latest: latest
+    }
+    return output;
 }
